@@ -87,9 +87,6 @@ func go_stream_read(context unsafe.Pointer, buffer *C.uint8_t, size C.uint32_t) 
 //export go_stream_close
 func go_stream_close(context unsafe.Pointer) {
     stream := (*InMemoryAudioStream)(context)
-    err := stream.Close()
-    if err != nil {
-        println("close error", err.Error())
-    }
+    stream.Close()
     return
 }
